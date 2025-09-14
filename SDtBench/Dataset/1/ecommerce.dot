@@ -1,0 +1,27 @@
+digraph ECommerce {
+  rankdir=LR;
+  labelloc="t";
+  label="E-commerce Checkout Entity Graph";
+  node [shape=box, style=rounded];
+  "Customer";
+  "Order";
+  "Product";
+  "Cart";
+  "Invoice";
+  "Payment";
+  "Shipping";
+  "Supplier";
+  "Category";
+  "Review";
+  "Customer" -> "Order" [label="places"];
+  "Customer" -> "Cart" [label="owns"];
+  "Cart" -> "Product" [label="contains"];
+  "Order" -> "Product" [label="includes"];
+  "Order" -> "Invoice" [label="generates"];
+  "Order" -> "Payment" [label="settledBy"];
+  "Order" -> "Shipping" [label="deliveredVia"];
+  "Product" -> "Supplier" [label="providedBy"];
+  "Product" -> "Category" [label="categorizedAs"];
+  "Review" -> "Product" [label="about"];
+  "Customer" -> "Review" [label="writes"];
+}

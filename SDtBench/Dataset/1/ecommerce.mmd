@@ -1,0 +1,25 @@
+---
+title: E-commerce Checkout Class Diagram
+---
+classDiagram
+class Customer
+class Order
+class Product
+class Cart
+class Invoice
+class Payment
+class Shipping
+class Supplier
+class Category
+class Review
+Customer --> Order : places
+Customer --> Cart : owns
+Cart --> Product : contains
+Order --> Product : includes
+Order --> Invoice : generates
+Order --> Payment : settledBy
+Order --> Shipping : deliveredVia
+Product --> Supplier : providedBy
+Product --> Category : categorizedAs
+Review --> Product : about
+Customer --> Review : writes
