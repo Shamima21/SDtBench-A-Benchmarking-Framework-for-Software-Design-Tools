@@ -1,0 +1,20 @@
+Tasks Outline
+"E-commerce Checkout → Customer, Order, Product, Cart, Invoice, Payment, Shipping, Supplier, Category, Review"
+
+"Library System → Book, Author, Member, Loan, Librarian, Fine, Publisher, Copy, Reservation, Category"
+
+"Hospital Management → Patient, Doctor, Nurse, Appointment, Prescription, Pharmacy, Ward, LabTest, Invoice, Insurance"
+
+"University Portal → Student, Course, Professor, Department, Exam, Grade, Assignment, Library, Schedule, Club"
+
+"Social Media App → User, Post, Comment, Like, Share, Message, Group, Event, Notification, Profile"
+
+"Banking System → Account, Customer, Transaction, Loan, CreditCard, ATM, Branch, Employee, Audit, Policy"
+
+"Online Ticketing → Customer, Ticket, Train, Flight, Payment, Reservation, Seat, Schedule, Employee, Station"
+
+"Restaurant Ordering → Customer, Order, Menu, Item, Table, Chef, Waiter, Bill, Payment, Feedback"
+
+"Inventory Management → Product, Category, Supplier, Order, Shipment, Warehouse, Stock, Customer, Return, Invoice"
+
+"Hotel Booking → Guest, Room, Booking, Payment, Invoice, Staff, Service, Feedback, Reservation, Offer"
