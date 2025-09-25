@@ -1,0 +1,25 @@
+digraph restaurant-ordering {
+  rankdir=LR;
+  labelloc="t";
+  label="Restaurant Ordering Entity Graph";
+  node [shape=box, style=rounded];
+  "Customer";
+  "Order";
+  "Menu";
+  "Item";
+  "Table";
+  "Chef";
+  "Waiter";
+  "Bill";
+  "Payment";
+  "Feedback";
+  "Customer" -> "Order" [label="relatesTo"];
+  "Order" -> "Menu" [label="relatesTo"];
+  "Menu" -> "Item" [label="relatesTo"];
+  "Item" -> "Table" [label="relatesTo"];
+  "Table" -> "Chef" [label="relatesTo"];
+  "Chef" -> "Waiter" [label="relatesTo"];
+  "Waiter" -> "Bill" [label="relatesTo"];
+  "Bill" -> "Payment" [label="relatesTo"];
+  "Payment" -> "Feedback" [label="relatesTo"];
+}

@@ -1,0 +1,23 @@
+---
+title: Restaurant Ordering Class Diagram
+---
+classDiagram
+class "Customer"
+class "Order"
+class "Menu"
+class "Item"
+class "Table"
+class "Chef"
+class "Waiter"
+class "Bill"
+class "Payment"
+class "Feedback"
+"Customer" --> "Order" : relatesTo
+"Order" --> "Menu" : relatesTo
+"Menu" --> "Item" : relatesTo
+"Item" --> "Table" : relatesTo
+"Table" --> "Chef" : relatesTo
+"Chef" --> "Waiter" : relatesTo
+"Waiter" --> "Bill" : relatesTo
+"Bill" --> "Payment" : relatesTo
+"Payment" --> "Feedback" : relatesTo
