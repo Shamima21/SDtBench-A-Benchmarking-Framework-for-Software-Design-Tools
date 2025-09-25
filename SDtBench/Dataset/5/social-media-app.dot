@@ -1,0 +1,25 @@
+digraph social-media-app {
+  rankdir=LR;
+  labelloc="t";
+  label="Social Media App Entity Graph";
+  node [shape=box, style=rounded];
+  "User";
+  "Post";
+  "Comment";
+  "Like";
+  "Share";
+  "Message";
+  "Group";
+  "Event";
+  "Notification";
+  "Profile";
+  "User" -> "Post" [label="relatesTo"];
+  "Post" -> "Comment" [label="relatesTo"];
+  "Comment" -> "Like" [label="relatesTo"];
+  "Like" -> "Share" [label="relatesTo"];
+  "Share" -> "Message" [label="relatesTo"];
+  "Message" -> "Group" [label="relatesTo"];
+  "Group" -> "Event" [label="relatesTo"];
+  "Event" -> "Notification" [label="relatesTo"];
+  "Notification" -> "Profile" [label="relatesTo"];
+}

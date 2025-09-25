@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+title Social Media App Class Diagram
+class User as "User"
+class Post as "Post"
+class Comment as "Comment"
+class Like as "Like"
+class Share as "Share"
+class Message as "Message"
+class Group as "Group"
+class Event as "Event"
+class Notification as "Notification"
+class Profile as "Profile"
+User --> Post : relatesTo
+Post --> Comment : relatesTo
+Comment --> Like : relatesTo
+Like --> Share : relatesTo
+Share --> Message : relatesTo
+Message --> Group : relatesTo
+Group --> Event : relatesTo
+Event --> Notification : relatesTo
+Notification --> Profile : relatesTo
+@enduml

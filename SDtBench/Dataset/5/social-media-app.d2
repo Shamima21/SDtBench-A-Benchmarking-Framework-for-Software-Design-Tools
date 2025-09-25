@@ -1,0 +1,22 @@
+# Social Media App Graph (D2)
+direction: right
+style: { shape: rounded }
+"User": "User"
+"Post": "Post"
+"Comment": "Comment"
+"Like": "Like"
+"Share": "Share"
+"Message": "Message"
+"Group": "Group"
+"Event": "Event"
+"Notification": "Notification"
+"Profile": "Profile"
+"User" -> "Post": "relatesTo"
+"Post" -> "Comment": "relatesTo"
+"Comment" -> "Like": "relatesTo"
+"Like" -> "Share": "relatesTo"
+"Share" -> "Message": "relatesTo"
+"Message" -> "Group": "relatesTo"
+"Group" -> "Event": "relatesTo"
+"Event" -> "Notification": "relatesTo"
+"Notification" -> "Profile": "relatesTo"

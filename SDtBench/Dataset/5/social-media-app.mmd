@@ -1,0 +1,23 @@
+---
+title: Social Media App Class Diagram
+---
+classDiagram
+class "User"
+class "Post"
+class "Comment"
+class "Like"
+class "Share"
+class "Message"
+class "Group"
+class "Event"
+class "Notification"
+class "Profile"
+"User" --> "Post" : relatesTo
+"Post" --> "Comment" : relatesTo
+"Comment" --> "Like" : relatesTo
+"Like" --> "Share" : relatesTo
+"Share" --> "Message" : relatesTo
+"Message" --> "Group" : relatesTo
+"Group" --> "Event" : relatesTo
+"Event" --> "Notification" : relatesTo
+"Notification" --> "Profile" : relatesTo
