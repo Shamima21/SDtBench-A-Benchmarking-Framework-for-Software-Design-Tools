@@ -1,0 +1,25 @@
+digraph library-system {
+  rankdir=LR;
+  labelloc="t";
+  label="Library System Entity Graph";
+  node [shape=box, style=rounded];
+  "Book";
+  "Author";
+  "Member";
+  "Loan";
+  "Librarian";
+  "Fine";
+  "Publisher";
+  "Copy";
+  "Reservation";
+  "Category";
+  "Book" -> "Author" [label="relatesTo"];
+  "Author" -> "Member" [label="relatesTo"];
+  "Member" -> "Loan" [label="relatesTo"];
+  "Loan" -> "Librarian" [label="relatesTo"];
+  "Librarian" -> "Fine" [label="relatesTo"];
+  "Fine" -> "Publisher" [label="relatesTo"];
+  "Publisher" -> "Copy" [label="relatesTo"];
+  "Copy" -> "Reservation" [label="relatesTo"];
+  "Reservation" -> "Category" [label="relatesTo"];
+}
