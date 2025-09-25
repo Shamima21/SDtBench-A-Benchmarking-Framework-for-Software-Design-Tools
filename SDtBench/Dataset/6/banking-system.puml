@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+title Banking System Class Diagram
+class Account as "Account"
+class Customer as "Customer"
+class Transaction as "Transaction"
+class Loan as "Loan"
+class CreditCard as "CreditCard"
+class ATM as "ATM"
+class Branch as "Branch"
+class Employee as "Employee"
+class Audit as "Audit"
+class Policy as "Policy"
+Account --> Customer : relatesTo
+Customer --> Transaction : relatesTo
+Transaction --> Loan : relatesTo
+Loan --> CreditCard : relatesTo
+CreditCard --> ATM : relatesTo
+ATM --> Branch : relatesTo
+Branch --> Employee : relatesTo
+Employee --> Audit : relatesTo
+Audit --> Policy : relatesTo
+@enduml

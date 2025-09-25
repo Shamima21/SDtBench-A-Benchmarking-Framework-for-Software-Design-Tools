@@ -1,0 +1,25 @@
+digraph banking-system {
+  rankdir=LR;
+  labelloc="t";
+  label="Banking System Entity Graph";
+  node [shape=box, style=rounded];
+  "Account";
+  "Customer";
+  "Transaction";
+  "Loan";
+  "CreditCard";
+  "ATM";
+  "Branch";
+  "Employee";
+  "Audit";
+  "Policy";
+  "Account" -> "Customer" [label="relatesTo"];
+  "Customer" -> "Transaction" [label="relatesTo"];
+  "Transaction" -> "Loan" [label="relatesTo"];
+  "Loan" -> "CreditCard" [label="relatesTo"];
+  "CreditCard" -> "ATM" [label="relatesTo"];
+  "ATM" -> "Branch" [label="relatesTo"];
+  "Branch" -> "Employee" [label="relatesTo"];
+  "Employee" -> "Audit" [label="relatesTo"];
+  "Audit" -> "Policy" [label="relatesTo"];
+}

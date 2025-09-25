@@ -1,0 +1,23 @@
+---
+title: Banking System Class Diagram
+---
+classDiagram
+class "Account"
+class "Customer"
+class "Transaction"
+class "Loan"
+class "CreditCard"
+class "ATM"
+class "Branch"
+class "Employee"
+class "Audit"
+class "Policy"
+"Account" --> "Customer" : relatesTo
+"Customer" --> "Transaction" : relatesTo
+"Transaction" --> "Loan" : relatesTo
+"Loan" --> "CreditCard" : relatesTo
+"CreditCard" --> "ATM" : relatesTo
+"ATM" --> "Branch" : relatesTo
+"Branch" --> "Employee" : relatesTo
+"Employee" --> "Audit" : relatesTo
+"Audit" --> "Policy" : relatesTo

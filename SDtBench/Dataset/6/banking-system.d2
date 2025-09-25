@@ -1,0 +1,22 @@
+# Banking System Graph (D2)
+direction: right
+style: { shape: rounded }
+"Account": "Account"
+"Customer": "Customer"
+"Transaction": "Transaction"
+"Loan": "Loan"
+"CreditCard": "CreditCard"
+"ATM": "ATM"
+"Branch": "Branch"
+"Employee": "Employee"
+"Audit": "Audit"
+"Policy": "Policy"
+"Account" -> "Customer": "relatesTo"
+"Customer" -> "Transaction": "relatesTo"
+"Transaction" -> "Loan": "relatesTo"
+"Loan" -> "CreditCard": "relatesTo"
+"CreditCard" -> "ATM": "relatesTo"
+"ATM" -> "Branch": "relatesTo"
+"Branch" -> "Employee": "relatesTo"
+"Employee" -> "Audit": "relatesTo"
+"Audit" -> "Policy": "relatesTo"
