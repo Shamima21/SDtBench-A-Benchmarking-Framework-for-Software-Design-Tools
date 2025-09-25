@@ -1,0 +1,23 @@
+---
+title: Hotel Booking Class Diagram
+---
+classDiagram
+class "Guest"
+class "Room"
+class "Booking"
+class "Payment"
+class "Invoice"
+class "Staff"
+class "Service"
+class "Feedback"
+class "Reservation"
+class "Offer"
+"Guest" --> "Room" : relatesTo
+"Room" --> "Booking" : relatesTo
+"Booking" --> "Payment" : relatesTo
+"Payment" --> "Invoice" : relatesTo
+"Invoice" --> "Staff" : relatesTo
+"Staff" --> "Service" : relatesTo
+"Service" --> "Feedback" : relatesTo
+"Feedback" --> "Reservation" : relatesTo
+"Reservation" --> "Offer" : relatesTo

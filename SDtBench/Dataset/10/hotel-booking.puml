@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+title Hotel Booking Class Diagram
+class Guest as "Guest"
+class Room as "Room"
+class Booking as "Booking"
+class Payment as "Payment"
+class Invoice as "Invoice"
+class Staff as "Staff"
+class Service as "Service"
+class Feedback as "Feedback"
+class Reservation as "Reservation"
+class Offer as "Offer"
+Guest --> Room : relatesTo
+Room --> Booking : relatesTo
+Booking --> Payment : relatesTo
+Payment --> Invoice : relatesTo
+Invoice --> Staff : relatesTo
+Staff --> Service : relatesTo
+Service --> Feedback : relatesTo
+Feedback --> Reservation : relatesTo
+Reservation --> Offer : relatesTo
+@enduml

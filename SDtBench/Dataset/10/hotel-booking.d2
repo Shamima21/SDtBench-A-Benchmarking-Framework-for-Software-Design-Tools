@@ -1,0 +1,22 @@
+# Hotel Booking Graph (D2)
+direction: right
+style: { shape: rounded }
+"Guest": "Guest"
+"Room": "Room"
+"Booking": "Booking"
+"Payment": "Payment"
+"Invoice": "Invoice"
+"Staff": "Staff"
+"Service": "Service"
+"Feedback": "Feedback"
+"Reservation": "Reservation"
+"Offer": "Offer"
+"Guest" -> "Room": "relatesTo"
+"Room" -> "Booking": "relatesTo"
+"Booking" -> "Payment": "relatesTo"
+"Payment" -> "Invoice": "relatesTo"
+"Invoice" -> "Staff": "relatesTo"
+"Staff" -> "Service": "relatesTo"
+"Service" -> "Feedback": "relatesTo"
+"Feedback" -> "Reservation": "relatesTo"
+"Reservation" -> "Offer": "relatesTo"

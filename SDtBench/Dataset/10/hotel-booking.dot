@@ -1,0 +1,25 @@
+digraph hotel-booking {
+  rankdir=LR;
+  labelloc="t";
+  label="Hotel Booking Entity Graph";
+  node [shape=box, style=rounded];
+  "Guest";
+  "Room";
+  "Booking";
+  "Payment";
+  "Invoice";
+  "Staff";
+  "Service";
+  "Feedback";
+  "Reservation";
+  "Offer";
+  "Guest" -> "Room" [label="relatesTo"];
+  "Room" -> "Booking" [label="relatesTo"];
+  "Booking" -> "Payment" [label="relatesTo"];
+  "Payment" -> "Invoice" [label="relatesTo"];
+  "Invoice" -> "Staff" [label="relatesTo"];
+  "Staff" -> "Service" [label="relatesTo"];
+  "Service" -> "Feedback" [label="relatesTo"];
+  "Feedback" -> "Reservation" [label="relatesTo"];
+  "Reservation" -> "Offer" [label="relatesTo"];
+}
