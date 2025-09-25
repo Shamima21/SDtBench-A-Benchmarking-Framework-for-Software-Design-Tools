@@ -1,0 +1,27 @@
+---
+title: Library System Class Diagram
+---
+classDiagram
+class Book
+class Author
+class Member
+class Loan
+class Librarian
+class Fine
+class Publisher
+class Copy
+class Reservation
+class Category
+Author --> Book : writes
+Book --> Publisher : publishedBy
+Book --> Category : categorizedAs
+Book --> Copy : hasCopy
+Copy --> Book : of
+Member --> Loan : borrowsVia
+Loan --> Copy : for
+Loan --> Librarian : issuedBy
+Loan --> Fine : mayIncur
+Member --> Fine : pays
+Member --> Reservation : makes
+Reservation --> Book : reservedFor
+Reservation --> Librarian : handledBy
