@@ -1,0 +1,25 @@
+digraph inventory-management {
+  rankdir=LR;
+  labelloc="t";
+  label="Inventory Management Entity Graph";
+  node [shape=box, style=rounded];
+  "Product";
+  "Category";
+  "Supplier";
+  "Order";
+  "Shipment";
+  "Warehouse";
+  "Stock";
+  "Customer";
+  "Return";
+  "Invoice";
+  "Product" -> "Category" [label="relatesTo"];
+  "Category" -> "Supplier" [label="relatesTo"];
+  "Supplier" -> "Order" [label="relatesTo"];
+  "Order" -> "Shipment" [label="relatesTo"];
+  "Shipment" -> "Warehouse" [label="relatesTo"];
+  "Warehouse" -> "Stock" [label="relatesTo"];
+  "Stock" -> "Customer" [label="relatesTo"];
+  "Customer" -> "Return" [label="relatesTo"];
+  "Return" -> "Invoice" [label="relatesTo"];
+}

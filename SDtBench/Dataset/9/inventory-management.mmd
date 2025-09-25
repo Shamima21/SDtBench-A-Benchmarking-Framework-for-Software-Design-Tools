@@ -1,0 +1,23 @@
+---
+title: Inventory Management Class Diagram
+---
+classDiagram
+class "Product"
+class "Category"
+class "Supplier"
+class "Order"
+class "Shipment"
+class "Warehouse"
+class "Stock"
+class "Customer"
+class "Return"
+class "Invoice"
+"Product" --> "Category" : relatesTo
+"Category" --> "Supplier" : relatesTo
+"Supplier" --> "Order" : relatesTo
+"Order" --> "Shipment" : relatesTo
+"Shipment" --> "Warehouse" : relatesTo
+"Warehouse" --> "Stock" : relatesTo
+"Stock" --> "Customer" : relatesTo
+"Customer" --> "Return" : relatesTo
+"Return" --> "Invoice" : relatesTo

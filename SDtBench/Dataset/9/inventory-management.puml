@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+title Inventory Management Class Diagram
+class Product as "Product"
+class Category as "Category"
+class Supplier as "Supplier"
+class Order as "Order"
+class Shipment as "Shipment"
+class Warehouse as "Warehouse"
+class Stock as "Stock"
+class Customer as "Customer"
+class Return as "Return"
+class Invoice as "Invoice"
+Product --> Category : relatesTo
+Category --> Supplier : relatesTo
+Supplier --> Order : relatesTo
+Order --> Shipment : relatesTo
+Shipment --> Warehouse : relatesTo
+Warehouse --> Stock : relatesTo
+Stock --> Customer : relatesTo
+Customer --> Return : relatesTo
+Return --> Invoice : relatesTo
+@enduml

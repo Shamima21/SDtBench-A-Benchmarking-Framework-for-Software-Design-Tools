@@ -1,0 +1,22 @@
+# Inventory Management Graph (D2)
+direction: right
+style: { shape: rounded }
+"Product": "Product"
+"Category": "Category"
+"Supplier": "Supplier"
+"Order": "Order"
+"Shipment": "Shipment"
+"Warehouse": "Warehouse"
+"Stock": "Stock"
+"Customer": "Customer"
+"Return": "Return"
+"Invoice": "Invoice"
+"Product" -> "Category": "relatesTo"
+"Category" -> "Supplier": "relatesTo"
+"Supplier" -> "Order": "relatesTo"
+"Order" -> "Shipment": "relatesTo"
+"Shipment" -> "Warehouse": "relatesTo"
+"Warehouse" -> "Stock": "relatesTo"
+"Stock" -> "Customer": "relatesTo"
+"Customer" -> "Return": "relatesTo"
+"Return" -> "Invoice": "relatesTo"
