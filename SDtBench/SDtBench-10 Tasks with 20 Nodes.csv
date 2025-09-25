@@ -1,0 +1,20 @@
+Tasks Outline
+"Large E-commerce Platform → Customer, Product, Category, Order, Payment, Invoice, Review, Cart, Shipment, Supplier, Return, Refund, Employee, Promotion, Warehouse, Stock, LoyaltyCard, Notification, Report, Analytics"
+
+"Extended Library System → Book, Author, Member, Librarian, Loan, Fine, Reservation, Publisher, Copy, Branch, Category, Review, Notification, DigitalCopy, Subscription, Staff, Payment, Report, AccessControl, Department"
+
+"Smart Hospital → Patient, Doctor, Nurse, Ward, Appointment, Surgery, Prescription, LabTest, Pharmacy, Invoice, Insurance, Ambulance, Device, Record, Billing, Emergency, Department, Staff, Schedule, Room"
+
+"University ERP → Student, Professor, Course, Exam, Grade, Transcript, Department, Assignment, Research, Publication, Conference, Library, Book, Member, Lab, Schedule, Club, Hostel, Staff, Alumni"
+
+"Corporate HR System → Employee, Department, Position, Payroll, Leave, Attendance, Training, Recruitment, Appraisal, Benefit, Loan, Policy, Document, Project, Team, Evaluation, Manager, Task, SalarySlip, Notice"
+
+"Banking Enterprise → Account, Customer, Loan, CreditCard, Transaction, Policy, Employee, Branch, ATM, Audit, Insurance, Compliance, Security, Alert, Notification, Report, Investment, Payment, Treasury, Profile"
+
+"Transport System → Bus, Train, Flight, Station, Ticket, Reservation, Schedule, Passenger, Employee, Vehicle, Route, Maintenance, Driver, Payment, Invoice, Luggage, Insurance, Delay, Refund, Review"
+
+"Tourism Management → Tourist, Guide, Package, Destination, Hotel, Transport, Reservation, Payment, Invoice, Feedback, Staff, Policy, Agency, Schedule, Activity, Insurance, Event, Promotion, Booking, Service"
+
+"Restaurant Chain ERP → Customer, Menu, Item, Table, Order, Payment, Feedback, Chef, Waiter, Bill, Reservation, Supplier, Inventory, Warehouse, Promotion, LoyaltyCard, Staff, Kitchen, Branch, Delivery"
+
+"Energy Utility System → Customer, Meter, Reading, Bill, Payment, Connection, Employee, Transformer, Complaint, Service, Department, Policy, Outage, Alert, Device, Record, Invoice, Report, Staff, Schedule"
