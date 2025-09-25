@@ -1,0 +1,25 @@
+digraph online-ticketing {
+  rankdir=LR;
+  labelloc="t";
+  label="Online Ticketing Entity Graph";
+  node [shape=box, style=rounded];
+  "Customer";
+  "Ticket";
+  "Train";
+  "Flight";
+  "Payment";
+  "Reservation";
+  "Seat";
+  "Schedule";
+  "Employee";
+  "Station";
+  "Customer" -> "Ticket" [label="relatesTo"];
+  "Ticket" -> "Train" [label="relatesTo"];
+  "Train" -> "Flight" [label="relatesTo"];
+  "Flight" -> "Payment" [label="relatesTo"];
+  "Payment" -> "Reservation" [label="relatesTo"];
+  "Reservation" -> "Seat" [label="relatesTo"];
+  "Seat" -> "Schedule" [label="relatesTo"];
+  "Schedule" -> "Employee" [label="relatesTo"];
+  "Employee" -> "Station" [label="relatesTo"];
+}

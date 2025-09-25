@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+title Online Ticketing Class Diagram
+class Customer as "Customer"
+class Ticket as "Ticket"
+class Train as "Train"
+class Flight as "Flight"
+class Payment as "Payment"
+class Reservation as "Reservation"
+class Seat as "Seat"
+class Schedule as "Schedule"
+class Employee as "Employee"
+class Station as "Station"
+Customer --> Ticket : relatesTo
+Ticket --> Train : relatesTo
+Train --> Flight : relatesTo
+Flight --> Payment : relatesTo
+Payment --> Reservation : relatesTo
+Reservation --> Seat : relatesTo
+Seat --> Schedule : relatesTo
+Schedule --> Employee : relatesTo
+Employee --> Station : relatesTo
+@enduml

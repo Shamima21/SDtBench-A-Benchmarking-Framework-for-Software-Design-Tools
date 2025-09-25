@@ -1,0 +1,22 @@
+# Online Ticketing Graph (D2)
+direction: right
+style: { shape: rounded }
+"Customer": "Customer"
+"Ticket": "Ticket"
+"Train": "Train"
+"Flight": "Flight"
+"Payment": "Payment"
+"Reservation": "Reservation"
+"Seat": "Seat"
+"Schedule": "Schedule"
+"Employee": "Employee"
+"Station": "Station"
+"Customer" -> "Ticket": "relatesTo"
+"Ticket" -> "Train": "relatesTo"
+"Train" -> "Flight": "relatesTo"
+"Flight" -> "Payment": "relatesTo"
+"Payment" -> "Reservation": "relatesTo"
+"Reservation" -> "Seat": "relatesTo"
+"Seat" -> "Schedule": "relatesTo"
+"Schedule" -> "Employee": "relatesTo"
+"Employee" -> "Station": "relatesTo"

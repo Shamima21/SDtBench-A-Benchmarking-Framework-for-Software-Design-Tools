@@ -1,0 +1,23 @@
+---
+title: Online Ticketing Class Diagram
+---
+classDiagram
+class "Customer"
+class "Ticket"
+class "Train"
+class "Flight"
+class "Payment"
+class "Reservation"
+class "Seat"
+class "Schedule"
+class "Employee"
+class "Station"
+"Customer" --> "Ticket" : relatesTo
+"Ticket" --> "Train" : relatesTo
+"Train" --> "Flight" : relatesTo
+"Flight" --> "Payment" : relatesTo
+"Payment" --> "Reservation" : relatesTo
+"Reservation" --> "Seat" : relatesTo
+"Seat" --> "Schedule" : relatesTo
+"Schedule" --> "Employee" : relatesTo
+"Employee" --> "Station" : relatesTo
