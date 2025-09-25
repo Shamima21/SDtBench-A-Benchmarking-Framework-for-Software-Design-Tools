@@ -1,0 +1,25 @@
+digraph university-portal {
+  rankdir=LR;
+  labelloc="t";
+  label="University Portal Entity Graph";
+  node [shape=box, style=rounded];
+  "Student";
+  "Course";
+  "Professor";
+  "Department";
+  "Exam";
+  "Grade";
+  "Assignment";
+  "Library";
+  "Schedule";
+  "Club";
+  "Student" -> "Course" [label="relatesTo"];
+  "Course" -> "Professor" [label="relatesTo"];
+  "Professor" -> "Department" [label="relatesTo"];
+  "Department" -> "Exam" [label="relatesTo"];
+  "Exam" -> "Grade" [label="relatesTo"];
+  "Grade" -> "Assignment" [label="relatesTo"];
+  "Assignment" -> "Library" [label="relatesTo"];
+  "Library" -> "Schedule" [label="relatesTo"];
+  "Schedule" -> "Club" [label="relatesTo"];
+}

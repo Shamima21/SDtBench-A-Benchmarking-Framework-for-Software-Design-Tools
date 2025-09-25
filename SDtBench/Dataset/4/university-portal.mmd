@@ -1,0 +1,23 @@
+---
+title: University Portal Class Diagram
+---
+classDiagram
+class "Student"
+class "Course"
+class "Professor"
+class "Department"
+class "Exam"
+class "Grade"
+class "Assignment"
+class "Library"
+class "Schedule"
+class "Club"
+"Student" --> "Course" : relatesTo
+"Course" --> "Professor" : relatesTo
+"Professor" --> "Department" : relatesTo
+"Department" --> "Exam" : relatesTo
+"Exam" --> "Grade" : relatesTo
+"Grade" --> "Assignment" : relatesTo
+"Assignment" --> "Library" : relatesTo
+"Library" --> "Schedule" : relatesTo
+"Schedule" --> "Club" : relatesTo

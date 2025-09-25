@@ -1,0 +1,22 @@
+# University Portal Graph (D2)
+direction: right
+style: { shape: rounded }
+"Student": "Student"
+"Course": "Course"
+"Professor": "Professor"
+"Department": "Department"
+"Exam": "Exam"
+"Grade": "Grade"
+"Assignment": "Assignment"
+"Library": "Library"
+"Schedule": "Schedule"
+"Club": "Club"
+"Student" -> "Course": "relatesTo"
+"Course" -> "Professor": "relatesTo"
+"Professor" -> "Department": "relatesTo"
+"Department" -> "Exam": "relatesTo"
+"Exam" -> "Grade": "relatesTo"
+"Grade" -> "Assignment": "relatesTo"
+"Assignment" -> "Library": "relatesTo"
+"Library" -> "Schedule": "relatesTo"
+"Schedule" -> "Club": "relatesTo"

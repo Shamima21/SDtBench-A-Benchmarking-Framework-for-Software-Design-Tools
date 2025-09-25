@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+title University Portal Class Diagram
+class Student as "Student"
+class Course as "Course"
+class Professor as "Professor"
+class Department as "Department"
+class Exam as "Exam"
+class Grade as "Grade"
+class Assignment as "Assignment"
+class Library as "Library"
+class Schedule as "Schedule"
+class Club as "Club"
+Student --> Course : relatesTo
+Course --> Professor : relatesTo
+Professor --> Department : relatesTo
+Department --> Exam : relatesTo
+Exam --> Grade : relatesTo
+Grade --> Assignment : relatesTo
+Assignment --> Library : relatesTo
+Library --> Schedule : relatesTo
+Schedule --> Club : relatesTo
+@enduml
