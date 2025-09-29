@@ -1,0 +1,55 @@
+---
+title: Smart Hospital — Class Diagram
+---
+classDiagram
+class Patient
+class Doctor
+class Nurse
+class Ward
+class Appointment
+class Surgery
+class Prescription
+class LabTest
+class Pharmacy
+class Invoice
+class Insurance
+class Ambulance
+class Device
+class Record
+class Billing
+class Emergency
+class Department
+class Staff
+class Schedule
+class Room
+Patient --> Appointment : schedules
+Appointment --> Doctor : with
+Appointment --> Nurse : assistedBy
+Appointment --> Surgery : mayLeadTo
+Surgery --> Schedule : scheduledVia
+Surgery --> Doctor : performedBy
+Patient --> Ward : admittedTo
+Patient --> Room : assignedTo
+Room --> Ward : partOf
+Doctor --> Prescription : prescribes
+Prescription --> Pharmacy : dispensedBy
+Doctor --> LabTest : orders
+LabTest --> Patient : for
+Ambulance --> Emergency : transportsTo
+Emergency --> Patient : triages
+Device --> Patient : monitors
+Device --> Department : managedBy
+Record --> Patient : records
+Record --> Appointment : includes
+Record --> Surgery : includes
+Record --> LabTest : includes
+Record --> Prescription : includes
+Billing --> Invoice : generates
+Invoice --> Patient : issuedFor
+Insurance --> Invoice : covers
+Billing --> Patient : billedTo
+Department --> Staff : employs
+Staff --> Department : assignedTo
+Schedule --> Doctor : allocatedFor
+Schedule --> Nurse : allocatedFor
+Schedule --> Room : reserves
