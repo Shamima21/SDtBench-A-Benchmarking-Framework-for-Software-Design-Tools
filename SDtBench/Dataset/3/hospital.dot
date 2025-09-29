@@ -1,0 +1,31 @@
+digraph Hospital {
+  rankdir=LR;
+  labelloc="t";
+  label="Hospital Management — Entity Graph";
+  node [shape=box, style=rounded];
+  "Patient";
+  "Doctor";
+  "Nurse";
+  "Appointment";
+  "Prescription";
+  "Pharmacy";
+  "Ward";
+  "LabTest";
+  "Invoice";
+  "Insurance";
+  "Patient" -> "Appointment" [label="schedules"];
+  "Appointment" -> "Doctor" [label="with"];
+  "Appointment" -> "Nurse" [label="assistedBy"];
+  "Appointment" -> "Prescription" [label="resultsIn"];
+  "Prescription" -> "Pharmacy" [label="dispensedBy"];
+  "Patient" -> "Ward" [label="admittedTo"];
+  "Nurse" -> "Ward" [label="assignedTo"];
+  "Doctor" -> "LabTest" [label="orders"];
+  "LabTest" -> "Patient" [label="for"];
+  "Pharmacy" -> "Invoice" [label="generates"];
+  "Invoice" -> "Patient" [label="generatedFor"];
+  "Invoice" -> "LabTest" [label="covers"];
+  "Invoice" -> "Prescription" [label="covers"];
+  "Insurance" -> "Invoice" [label="covers"];
+  "Patient" -> "Insurance" [label="holds"];
+}
