@@ -1,38 +1,69 @@
-workspace "E-commerce Checkout" "Modeled as entity containers" {
+workspace "E-commerce Checkout" "Entity-level model following tutorial style" {
+
   model {
-    softwareSystem ecommerce "E-commerce Platform" {
-      container customer "Customer" "Entity" "Represents the Customer concept"
-      container order "Order" "Entity" "Represents the Order concept"
-      container product "Product" "Entity" "Represents the Product concept"
-      container cart "Cart" "Entity" "Represents the Cart concept"
-      container invoice "Invoice" "Entity" "Represents the Invoice concept"
-      container payment "Payment" "Entity" "Represents the Payment concept"
-      container shipping "Shipping" "Entity" "Represents the Shipping concept"
-      container supplier "Supplier" "Entity" "Represents the Supplier concept"
-      container category "Category" "Entity" "Represents the Category concept"
-      container review "Review" "Entity" "Represents the Review concept"
-      customer -> order "places"
-      customer -> cart "owns"
-      cart -> product "contains"
-      order -> product "includes"
-      order -> invoice "generates"
-      order -> payment "settledBy"
-      order -> shipping "deliveredVia"
-      product -> supplier "providedBy"
-      product -> category "categorizedAs"
-      review -> product "about"
-      customer -> review "writes"
+    user = person "User" "A shopper using the platform"
+
+    ecommerce = softwareSystem "E-commerce Platform" "Handles browsing, checkout, and post-order flows" {
+
+      cCustomer = container "Customer" "Represents the customer"
+      cOrder    = container "Order"    "Represents a purchase order"
+      cProduct  = container "Product"  "Represents a sellable item"
+      cCart     = container "Cart"     "Represents a shopping cart"
+      cInvoice  = container "Invoice"  "Represents a billing document"
+      cPayment  = container "Payment"  "Represents a payment record"
+      cShipping = container "Shipping" "Represents shipment/delivery info"
+      cSupplier = container "Supplier" "Represents a product supplier"
+      cCategory = container "Category" "Represents a product category"
+      cReview   = container "Review"   "Represents a product review"
+
+      // Relationships
+      cCustomer -> cOrder    "places"
+      cCustomer -> cCart     "owns"
+      cCustomer -> cReview   "writes"
+
+      cCart     -> cProduct  "contains"
+      cOrder    -> cProduct  "includes"
+      cOrder    -> cInvoice  "generates"
+      cOrder    -> cPayment  "settledBy"
+      cOrder    -> cShipping "deliveredVia"
+
+      cProduct  -> cSupplier "providedBy"
+      cProduct  -> cCategory "categorizedAs"
+
+      cReview   -> cProduct  "about"
     }
+
+    user -> ecommerce "Uses"
   }
+
   views {
-    systemContext ecommerce "E-commerce Context" {
+    systemContext ecommerce sysCtx {
       include *
-      autoLayout lr
+      autolayout lr
     }
-    container ecommerce "E-commerce Entities" {
+
+    container ecommerce containerView {
       include *
-      autoLayout lr
+      autolayout lr
     }
-    theme default
+
+    styles {
+      element "Person" {
+        shape Person
+      }
+      element "Software System" {
+        background "#1168bd"
+        color "#ffffff"
+      }
+      element "Container" {
+        shape RoundedBox
+        background "#f0f7ff"
+        color "#000000"
+        stroke "#6b8fd6"
+      }
+      relationship "Relationship" {
+        routing Orthogonal
+      }
+    }
   }
 }
