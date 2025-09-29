@@ -1,0 +1,51 @@
+@startuml
+skinparam classAttributeIconSize 0
+title Large E-commerce Platform — Class Diagram
+class Customer
+class Product
+class Category
+class Order
+class Payment
+class Invoice
+class Review
+class Cart
+class Shipment
+class Supplier
+class Return
+class Refund
+class Employee
+class Promotion
+class Warehouse
+class Stock
+class LoyaltyCard
+class Notification
+class Report
+class Analytics
+Customer --> Order : places
+Customer --> Cart : owns
+Customer --> LoyaltyCard : holds
+Cart --> Product : contains
+Order --> Product : includes
+Order --> Invoice : generates
+Order --> Payment : settledBy
+Order --> Shipment : shippedAs
+Order --> Promotion : applies
+Product --> Supplier : providedBy
+Product --> Category : categorizedAs
+Product --> Stock : trackedBy
+Product --> Warehouse : storedIn
+Stock --> Warehouse : keptAt
+Shipment --> Customer : deliveredTo
+Shipment --> Return : mayLeadTo
+Return --> Refund : resultsIn
+Customer --> Review : writes
+Review --> Product : about
+Notification --> Customer : informs
+Notification --> Order : about
+Promotion --> Product : appliesTo
+Employee --> Warehouse : manages
+Employee --> Report : creates
+Analytics --> Order : aggregatesFrom
+Analytics --> Product : aggregatesFrom
+Report --> Analytics : summarizes
+@enduml
