@@ -1,0 +1,49 @@
+---
+title: Extended Library System — Class Diagram
+---
+classDiagram
+class Book
+class Author
+class Member
+class Librarian
+class Loan
+class Fine
+class Reservation
+class Publisher
+class Copy
+class Branch
+class Category
+class Review
+class Notification
+class DigitalCopy
+class Subscription
+class Staff
+class Payment
+class Report
+class AccessControl
+class Department
+Member --> Loan : borrows
+Loan --> Copy : includes
+Copy --> Book : of
+Copy --> Branch : locatedAt
+Book --> Author : writtenBy
+Book --> Publisher : publishedBy
+Book --> Category : categorizedAs
+Reservation --> Member : placedBy
+Reservation --> Book : for
+Librarian --> Loan : approves
+Fine --> Loan : assessedFor
+Payment --> Fine : settles
+Member --> Payment : makes
+Member --> Review : writes
+Review --> Book : about
+Notification --> Member : informs
+DigitalCopy --> Book : versionOf
+Subscription --> Member : belongsTo
+Subscription --> AccessControl : grants
+AccessControl --> DigitalCopy : restricts
+Staff --> Branch : worksAt
+Department --> Branch : manages
+Librarian --> Report : generates
+Report --> Department : summarizes
+Publisher --> DigitalCopy : distributes
