@@ -1,0 +1,30 @@
+---
+title: University Portal — Class Diagram
+---
+classDiagram
+class Student
+class Course
+class Professor
+class Department
+class Exam
+class Grade
+class Assignment
+class Library
+class Schedule
+class Club
+Student --> Course : enrollsIn
+Professor --> Course : teaches
+Course --> Department : offeredBy
+Course --> Assignment : has
+Assignment --> Grade : gradedAs
+Student --> Assignment : submits
+Student --> Exam : takes
+Exam --> Course : for
+Grade --> Exam : awardedFor
+Library --> Course : provides
+Student --> Library : borrowsFrom
+Schedule --> Course : allocates
+Schedule --> Professor : assignedTo
+Student --> Schedule : follows
+Club --> Department : belongsTo
+Student --> Club : joins
