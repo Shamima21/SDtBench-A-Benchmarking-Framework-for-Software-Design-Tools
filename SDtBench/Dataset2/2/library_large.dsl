@@ -1,62 +1,101 @@
-workspace "Extended Library System" "Modeled as entity containers" {
+workspace "Extended Library System" "Entity-level model" {
+
   model {
-    softwareSystem library "Library Platform" {
-      container book "Book" "Entity" "Represents the Book concept"
-      container author "Author" "Entity" "Represents the Author concept"
-      container member "Member" "Entity" "Represents the Member concept"
-      container librarian "Librarian" "Entity" "Represents the Librarian concept"
-      container loan "Loan" "Entity" "Represents the Loan concept"
-      container fine "Fine" "Entity" "Represents the Fine concept"
-      container reservation "Reservation" "Entity" "Represents the Reservation concept"
-      container publisher "Publisher" "Entity" "Represents the Publisher concept"
-      container copy "Copy" "Entity" "Represents the Copy concept"
-      container branch "Branch" "Entity" "Represents the Branch concept"
-      container category "Category" "Entity" "Represents the Category concept"
-      container review "Review" "Entity" "Represents the Review concept"
-      container notification "Notification" "Entity" "Represents the Notification concept"
-      container digitalcopy "DigitalCopy" "Entity" "Represents the DigitalCopy concept"
-      container subscription "Subscription" "Entity" "Represents the Subscription concept"
-      container staff "Staff" "Entity" "Represents the Staff concept"
-      container payment "Payment" "Entity" "Represents the Payment concept"
-      container report "Report" "Entity" "Represents the Report concept"
-      container accesscontrol "AccessControl" "Entity" "Represents the AccessControl concept"
-      container department "Department" "Entity" "Represents the Department concept"
-      member -> loan "borrows"
-      loan -> copy "includes"
-      copy -> book "of"
-      copy -> branch "locatedAt"
-      book -> author "writtenBy"
-      book -> publisher "publishedBy"
-      book -> category "categorizedAs"
-      reservation -> member "placedBy"
-      reservation -> book "for"
-      librarian -> loan "approves"
-      fine -> loan "assessedFor"
-      payment -> fine "settles"
-      member -> payment "makes"
-      member -> review "writes"
-      review -> book "about"
-      notification -> member "informs"
-      digitalcopy -> book "versionOf"
-      subscription -> member "belongsTo"
-      subscription -> accesscontrol "grants"
-      accesscontrol -> digitalcopy "restricts"
-      staff -> branch "worksAt"
-      department -> branch "manages"
-      librarian -> report "generates"
-      report -> department "summarizes"
-      publisher -> digitalcopy "distributes"
+    user = person "User" "A library visitor or registered member"
+
+    library = softwareSystem "Library System" "Manages books, members, staff, and library operations" {
+
+      cBook         = container "Book"         "Represents a book"
+      cAuthor       = container "Author"       "Represents the author of books"
+      cMember       = container "Member"       "Represents a library member"
+      cLibrarian    = container "Librarian"    "Represents library staff in charge of managing resources"
+      cLoan         = container "Loan"         "Represents a borrowing record"
+      cFine         = container "Fine"         "Represents overdue payment"
+      cReservation  = container "Reservation"  "Represents a hold placed on a book"
+      cPublisher    = container "Publisher"    "Represents a book publisher"
+      cCopy         = container "Copy"         "Represents a physical copy of a book"
+      cBranch       = container "Branch"       "Represents a library branch"
+      cCategory     = container "Category"     "Represents a classification/genre"
+      cReview       = container "Review"       "Represents a member review of a book"
+      cNotification = container "Notification" "Represents messages sent to members"
+      cDigitalCopy  = container "DigitalCopy"  "Represents an e-book or digital version"
+      cSubscription = container "Subscription" "Represents membership subscription plan"
+      cStaff        = container "Staff"        "Represents general staff"
+      cPayment      = container "Payment"      "Represents financial transactions"
+      cReport       = container "Report"       "Represents operational or analytical report"
+      cAccessCtrl   = container "AccessControl" "Represents system permissions"
+      cDept         = container "Department"   "Represents organizational unit"
+
+      // Relationships
+      cAuthor       -> cBook         "writes"
+      cBook         -> cPublisher    "publishedBy"
+      cBook         -> cCategory     "categorizedAs"
+      cBook         -> cCopy         "has"
+      cBook         -> cDigitalCopy  "availableAs"
+      cReview       -> cBook         "about"
+
+      cMember       -> cLoan         "borrows"
+      cMember       -> cReservation  "reserves"
+      cMember       -> cFine         "incurs"
+      cMember       -> cSubscription "subscribesTo"
+      cMember       -> cPayment      "pays"
+      cMember       -> cNotification "receives"
+
+      cLoan         -> cCopy         "issuedFor"
+      cLoan         -> cMember       "belongsTo"
+
+      cReservation  -> cCopy         "reserves"
+      cReservation  -> cMember       "placedBy"
+
+      cLibrarian    -> cLoan         "manages"
+      cLibrarian    -> cFine         "collects"
+      cLibrarian    -> cReservation  "processes"
+      cLibrarian    -> cReport       "generates"
+
+      cStaff        -> cBranch       "assignedTo"
+      cStaff        -> cDept         "belongsTo"
+
+      cPayment      -> cFine         "covers"
+      cPayment      -> cSubscription "covers"
+
+      cAccessCtrl   -> cMember       "controlsAccess"
+      cAccessCtrl   -> cStaff        "controlsAccess"
+
+      cBranch       -> cCopy         "stores"
+      cDept         -> cReport       "produces"
     }
+
+    user -> library "Uses"
   }
+
   views {
-    systemContext library "Library Context" {
+    systemContext library sysCtx {
       include *
-      autoLayout lr
+      autolayout lr
     }
-    container library "Library Entities" {
+
+    container library containerView {
       include *
-      autoLayout lr
+      autolayout lr
     }
-    theme default
+
+    styles {
+      element "Person" {
+        shape Person
+      }
+      element "Software System" {
+        background "#1168bd"
+        color "#ffffff"
+      }
+      element "Container" {
+        shape RoundedBox
+        background "#f9f9f9"
+        color "#000000"
+        stroke "#6b8fd6"
+      }
+      relationship "Relationship" {
+        routing Orthogonal
+      }
+    }
   }
 }
