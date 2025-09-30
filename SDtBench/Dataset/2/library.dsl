@@ -1,40 +1,73 @@
-workspace "Library System" "Modeled as entity containers" {
+workspace "Library System" "Entity-level model" {
+
   model {
-    softwareSystem library "Library Platform" {
-      container book "Book" "Entity" "Represents the Book concept"
-      container author "Author" "Entity" "Represents the Author concept"
-      container member "Member" "Entity" "Represents the Member concept"
-      container loan "Loan" "Entity" "Represents the Loan concept"
-      container librarian "Librarian" "Entity" "Represents the Librarian concept"
-      container fine "Fine" "Entity" "Represents the Fine concept"
-      container publisher "Publisher" "Entity" "Represents the Publisher concept"
-      container copy "Copy" "Entity" "Represents the Copy concept"
-      container reservation "Reservation" "Entity" "Represents the Reservation concept"
-      container category "Category" "Entity" "Represents the Category concept"
-      author -> book "writes"
-      book -> publisher "publishedBy"
-      book -> category "categorizedAs"
-      book -> copy "hasCopy"
-      copy -> book "of"
-      member -> loan "borrowsVia"
-      loan -> copy "for"
-      loan -> librarian "issuedBy"
-      loan -> fine "mayIncur"
-      member -> fine "pays"
-      member -> reservation "makes"
-      reservation -> book "reservedFor"
-      reservation -> librarian "handledBy"
+    user = person "User" "A library visitor or member"
+
+    library = softwareSystem "Library System" "Manages books, members, and operations" {
+
+      cBook        = container "Book"        "Represents a book in the collection"
+      cAuthor      = container "Author"      "Represents an author of books"
+      cMember      = container "Member"      "Represents a library member"
+      cLoan        = container "Loan"        "Represents a borrowing record"
+      cLibrarian   = container "Librarian"   "Represents library staff"
+      cFine        = container "Fine"        "Represents overdue payment"
+      cPublisher   = container "Publisher"   "Represents a book publisher"
+      cCopy        = container "Copy"        "Represents a physical copy of a book"
+      cReservation = container "Reservation" "Represents a hold placed by a member"
+      cCategory    = container "Category"    "Represents a classification/genre"
+
+      // Relationships
+      cAuthor      -> cBook        "writes"
+      cBook        -> cPublisher   "publishedBy"
+      cBook        -> cCategory    "categorizedAs"
+      cBook        -> cCopy        "has"
+
+      cMember      -> cLoan        "borrows"
+      cMember      -> cReservation "reserves"
+      cMember      -> cFine        "pays"
+
+      cLoan        -> cCopy        "issuedFor"
+      cLoan        -> cMember      "belongsTo"
+
+      cReservation -> cCopy        "reserves"
+      cReservation -> cMember      "placedBy"
+
+      cLibrarian   -> cLoan        "manages"
+      cLibrarian   -> cFine        "collects"
+      cLibrarian   -> cReservation "processes"
     }
+
+    user -> library "Uses"
   }
+
   views {
-    systemContext library "Library Context" {
+    systemContext library sysCtx {
       include *
-      autoLayout lr
+      autolayout lr
     }
-    container library "Library Entities" {
+
+    container library containerView {
       include *
-      autoLayout lr
+      autolayout lr
     }
-    theme default
+
+    styles {
+      element "Person" {
+        shape Person
+      }
+      element "Software System" {
+        background "#1168bd"
+        color "#ffffff"
+      }
+      element "Container" {
+        shape RoundedBox
+        background "#f9f9f9"
+        color "#000000"
+        stroke "#6b8fd6"
+      }
+      relationship "Relationship" {
+        routing Orthogonal
+      }
+    }
   }
 }
