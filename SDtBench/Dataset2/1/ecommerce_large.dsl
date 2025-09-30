@@ -22,7 +22,7 @@ workspace "Large E-commerce Platform" "Entity-level model" {
       cWarehouse   = container "Warehouse"   "Represents stock storage and logistics"
       cStock       = container "Stock"       "Represents inventory units"
       cLoyalty     = container "LoyaltyCard" "Represents customer loyalty points"
-      
+      cNotification = container "Notification" "Represents system notifications"
       cReport      = container "Report"      "Represents analytics or operational report"
       cAnalytics   = container "Analytics"   "Represents business intelligence and analysis"
 
@@ -31,7 +31,7 @@ workspace "Large E-commerce Platform" "Entity-level model" {
       cCustomer -> cOrder      "places"
       cCustomer -> cReview     "writes"
       cCustomer -> cLoyalty    "earns/redeems"
-     
+      cCustomer -> cNotification "receives"
 
       cCart     -> cProduct    "contains"
       cOrder    -> cProduct    "includes"
